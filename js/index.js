@@ -118,3 +118,110 @@ window.complete = (id) => {
   renderToDoComplete(toDoWork);
   renderToDoList(toDoNotWork);
 };
+
+const sortIncrease = () => {
+  const toDoWork = toDoComplete();
+  const toDoNotWork = toDoFalse();
+  // toDoWork.sort()
+  toDoWork.sort((a, b) => {
+    const nameA = a.name.toLowerCase();
+    const nameB = b.name.toLowerCase();
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+
+    // names must be equal
+    return 0;
+  });
+  toDoNotWork.sort((a, b) => {
+    const nameA = a.name.toLowerCase();
+    const nameB = b.name.toLowerCase();
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+
+    // names must be equal
+    return 0;
+  });
+  renderToDoComplete(toDoWork);
+  renderToDoList(toDoNotWork);
+};
+
+const sortDecrease = () => {
+  const toDoWork = toDoComplete();
+  const toDoNotWork = toDoFalse();
+  // toDoWork.sort()
+  toDoWork.sort((a, b) => {
+    const nameA = b.name.toLowerCase();
+    const nameB = a.name.toLowerCase();
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+
+    // names must be equal
+    return 0;
+  });
+  toDoNotWork.sort((a, b) => {
+    const nameA = b.name.toLowerCase();
+    const nameB = a.name.toLowerCase();
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+
+    // names must be equal
+    return 0;
+  });
+  renderToDoComplete(toDoWork);
+  renderToDoList(toDoNotWork);
+};
+
+// sort a - z
+getElement("two").onclick = () => {
+  sortIncrease();
+};
+
+// sort z - a
+getElement("three").onclick = () => {
+  sortDecrease();
+};
+
+const a1 = ["a", "B", "c", "b", "A"];
+
+a1.sort((a, b) => {
+  const nameA = a.toLowerCase();
+  const nameB = b.toLowerCase();
+  if (nameA < nameB) {
+    return -1;
+  }
+  if (nameA > nameB) {
+    return 1;
+  }
+
+  // names must be equal
+  return 0;
+});
+// a1.sort((a, b) => {
+
+//   if (a < b) {
+//     return -1;
+//   }
+//   if (a > b) {
+//     return 1;
+//   }
+//   return 0;
+//   // return a.localeCompare(b);
+// });
+
+console.log("a: ", a1);
